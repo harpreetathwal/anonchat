@@ -91,8 +91,8 @@ def webhook(request):
     for i,number in enumerate(outbound_numbers):
         print(number)
         print("outbound_names{}".format(outbound_names[i][1]))
-        message_body = sender_name + ": " + process_templated_message(message_body, outbound_names[i][0], outbound_names[i][1])
-        send(to=number, message_body=message_body)
+        processed_message = sender_name + ": " + process_templated_message(message_body, outbound_names[i][0], outbound_names[i][1])
+        send(to=number, message_body=processed_message)
     print("Forwarded!")
 
     print("Replying...")
